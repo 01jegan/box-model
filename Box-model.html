@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>box model</title>
+	  <style>
+	      .box
+		  {
+		  width:800px;
+		  height:auto;
+		  border:solid 2px red;
+		  margin:auto;
+		  padding:20px 20px;
+		  }
+		 h3 ,h4
+		 {
+		 font-size:32px;
+		 color:blue;
+		 }
+		 p,ul
+		 {
+		 font-size:26px;
+		 }
+		 span 
+		 {
+		 color:red;
+		 font-size:30px;
+		 }
+		 .exmple {
+		  background-color:#00bcd4;
+		  width: 500px;
+		  border: 15px solid blue;
+		  padding: 50px;
+		  margin: 20px;
+		}
+		pre
+		{
+		font-size:20px;
+		margin-left:-149px;
+		}
+		b 
+		{
+		 color:hotpink;
+		}
+		img 
+		{
+		margin-left:150px;
+		}
+		.div1 {
+			  width: 300px;
+			  height: 100px;
+			  border: 1px solid blue;
+			}
+
+			.div2 {
+			  width: 300px;
+			  height: 100px;
+			  padding: 50px;
+			  border: 1px solid red;
+			}
+			.div3 {
+		  width: 300px;
+		  height: 100px;
+		  border: 1px solid blue;
+		  box-sizing: border-box;
+		}
+
+		.div4 {
+		  width: 300px;
+		  height: 100px;  
+		  padding: 50px;
+		  border: 1px solid red;
+		  box-sizing: border-box;
+		}
+		#myDIV {
+		  height:300px;
+		  background-color:#FFFFFF;
+		  padding:30px;
+		}
+		#blueDIV {
+		  width:200px;
+		  border:30px solid coral;
+		  padding:10px;
+		  background-color:lightblue;
+		  box-sizing:content-box;
+		}
+		.mine {
+	  -webkit-box-reflect: left 30px;
+	}
+	.mine1 {
+	  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+	}
+	#example3 {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 20px 20px 50px 10px pink inset;
+}
+	span.ex1,.ex2 {
+  border: 5px solid red;
+  padding:  0em 1em;
+  border-radius: 16px;
+  font-size: 24px;
+  line-height: 2;
+}
+
+span.ex1 { 
+  -webkit-box-decoration-break: clone;
+  -o-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+span.ex2 { 
+  -webkit-box-decoration-break: slice;
+  -o-box-decoration-break: slice;
+  box-decoration-break: slice;
+}	
+	</style>
+</head>
+<body>
+    <div class="box">
+      <h3>BOX MODEL</h3>
+	    <p>The CSS box model is essentially a <b>box that wraps around every HTML element</b>.
+		It consists of: <b>margins, borders, padding, and the actual content</b></p>
+		<ul>
+		    <li>Content - The content of the box, where text and images appear</li>
+			<li>Padding - Clears an area around the content. The padding is transparent</li>
+			<li>Border - A border that goes around the padding and content</li>
+			<li>Margin - Clears an area outside the border. The margin is transparent</li>
+		</ul>
+		<img src="boxmodel.png" width="450" height="250">
+		<div class="exmple">
+			<p>This text is the content of the box. We have added a 50px padding, 20px margin and a 15px blue border. Ut enim ad minim veniam, 
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+			velit esse cillum dolore eu fugiat nulla pariatur.
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	 
+		</div>
+	<h3>Width and Height</h3>
+	      <p>When you set the <b>width and height properties</b> of an element with CSS, you just <b>set the width and height of the content area</b>.
+		  To calculate the <b>full size of an element, you must also add padding, borders and margins</b>.</p>
+          <span><pre>
+		      320px (width)
+				+ 20px (left + right padding)
+				+ 10px (left + right border)
+				+ 0px (left + right margin)
+				= 350px
+		  </pre></span>
+		  <p>The total <u>width</u> of an element should be calculated like this:</p>
+
+			<p>Total element <b>width = width + left padding + right padding + left border + right border + left margin + right margin</b></p>
+
+			<p>The total <u>height</u> of an element should be calculated like this:</p>
+
+			<p>Total element <b>height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin</b></p>
+     <h3>Why Box-sizing??</h3>
+	     <p>It have <b>Four-Property</b>border-box,content-box,initial,inherit</b></p>
+	     <h3>Problem</h3>
+	     <p>Without Box-sizing the By default, the width and height of an element is calculated like this:</p>
+
+			<p><span>width + padding + border = actual width of an element</span><p>
+			</p><span>height + padding + border = actual height of an element</span></p>
+
+			<p>This means: When you set the width/height of an element, the element often <b>appears bigger than you have set</b></p>
+    <p><u>Example</u></p>
+					 
+		<div class="div1">This div is smaller (width is 300px and height is 100px).</div>
+		<br>
+		<div class="div2">This div is bigger (width is also 300px and height is 100px).</div>
+
+     <h3><u>Solution-border box:</u></h3>
+	     <p>The box-sizing property allows us to include the padding and border in an<b> element's total width and height</b></p>
+		 <p>If you set<b> box-sizing: border-box; on an element, padding and border are included in the width and height</b></p>
+		 <p>Example</p>
+         <div class="div3">Both divs are the same size now!</div>
+			<br>
+			<div class="div4">HAPPY</div>
+
+     <h3>Content-Box<h3>
+	     <p>Default <b>The width and height properties (and min/max properties) includes only the content</b>. Border and padding are not included</p>
+         <h3>Example</h3>
+		 <div id="myDIV">
+		<p>Below is a 200px DIV with 10px padding and a 30px border.
+		If box-sizing is "border-box", the total width of the DIV element is always 200px,
+		but if box-sizing is "content-box", the total width is 200px plus padding and border = 280px.</p>
+		<div id="blueDIV">See what different box-sizing values does for an element.</div>
+		</div>
+
+	<h3>Box-Shadow</h3>
+	     <p>To attach more than one shadow to an element, add a comma-separated list of shadow</p>
+	   
+		<div id="example3">
+		  <p>A box shadow.</p>
+		</div>
+		
+	<h3>Box-decoration-break Property</h3>
+	<p>The box-decoration-break property specifies how the background, padding, border, border-image, box-shadow, margin, and clip-path of
+	an element is applied when the box for the element is fragmented.</p>
+	<h1>The box-decoration-break Property</h1>
+
+	<h2>box-decoration-break: clone:</h2>
+	<span class="ex1">review<br>s<br>easy<br>to learn</span>
+
+	<h2>box-decoration-break: slice (default):</h2>
+	<span class="ex2">review<br>css<br>box model<br>all the best</span>
+
+	
+	
+	
+	
+</div> 
+</body>
+</html>
